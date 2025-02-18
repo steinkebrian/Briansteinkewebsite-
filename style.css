@@ -39,27 +39,6 @@ header .logo h1 {
     font-weight: 600;
 }
 
-/* Header Styles */
-header {
-    background-color: #1E2A47;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-header.header-appear {
-    opacity: 1;
-}
-
-header .logo img {
-    width: 150px; /* Passen Sie die Größe des Logos an */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
 header nav ul {
     list-style-type: none;
     display: flex;
