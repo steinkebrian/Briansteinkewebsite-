@@ -1,27 +1,29 @@
-// Scroll-Animation beim Laden der Seite
+// Scroll-Animation
 window.addEventListener('scroll', () => {
-    const elements = document.querySelectorAll('.animate-on-scroll');
-    elements.forEach((el) => {
-        if (el.getBoundingClientRect().top < window.innerHeight) {
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
             el.classList.add('fade-in');
         }
     });
 });
 
-// Theme-Wechsel (Dunkelmodus)
+// Dark Mode speichern
 const themeToggleButton = document.getElementById('theme-toggle');
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    themeToggleButton.textContent = '🌞';
+}
+
 themeToggleButton.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
-    // Symbol wechseln je nach Zustand
-    if (document.body.classList.contains('dark-mode')) {
-        themeToggleButton.textContent = '🌞'; // Wechsel zum Sonnen-Symbol
-    } else {
-        themeToggleButton.textContent = '🌙'; // Wechsel zum Mond-Symbol
-    }
+    const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+    themeToggleButton.textContent = theme === 'dark' ? '🌞' : '🌙';
 });
 
-// Initialisieren der Animationen beim Laden der Seite
-window.addEventListener('load', () => {
-    const header = document.querySelector('header');
-    header.classList.add('header-appear');
-});
+// Hamburger Menü
+function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('active');
+}
