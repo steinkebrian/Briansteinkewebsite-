@@ -23,7 +23,7 @@ themeToggleButton.addEventListener('click', () => {
     themeToggleButton.textContent = theme === 'dark' ? '🌞' : '🌙';
 });
 
-// Hamburger Menü
+// Hamburger-Menü
 function toggleMenu() {
     document.querySelector('.nav-links').classList.toggle('active');
 }
