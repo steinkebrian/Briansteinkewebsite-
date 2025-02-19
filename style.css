@@ -1,13 +1,14 @@
-/* Allgemeine Styles */
+/* ========== Allgemeine Styles ========== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f4f4f9;
+    background: #f9f9f9;
     color: #333;
     line-height: 1.6;
     transition: all 0.3s ease-in-out;
@@ -15,18 +16,19 @@ body {
 
 /* Dark Mode */
 body.dark-mode {
-    background-color: #181818;
+    background: #181818;
     color: #f4f4f9;
 }
 
-/* Header */
+/* ========== Header & Navigation ========== */
 header {
-    background: linear-gradient(90deg, #1E2A47, #3A5A98);
+    background: linear-gradient(135deg, #1E2A47, #3A5A98);
     color: #fff;
     padding: 15px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo img {
@@ -48,11 +50,30 @@ nav {
     color: #fff;
     text-decoration: none;
     font-weight: bold;
-    transition: 0.3s;
+    font-size: 1.1rem;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
 }
 
 .nav-links li a:hover {
-    color: #f4a261;
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* Dark Mode Button */
+#theme-toggle {
+    font-size: 1.2rem;
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 15px;
+    transition: transform 0.3s;
+}
+
+#theme-toggle:hover {
+    transform: rotate(180deg);
 }
 
 /* Burger-Menü */
@@ -63,6 +84,7 @@ nav {
     color: #fff;
 }
 
+/* Responsive Navigation */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -71,8 +93,10 @@ nav {
         top: 70px;
         right: 20px;
         background: #3A5A98;
+        width: 200px;
         padding: 15px;
         border-radius: 5px;
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
     }
 
     .nav-links.active {
@@ -84,23 +108,92 @@ nav {
     }
 }
 
-/* Animierte Abschnitte */
-.animate-on-scroll {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
-}
-
-.animate-on-scroll.fade-in {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Footer */
-footer {
+/* ========== Sektionen ========== */
+section {
+    padding: 50px 20px;
     text-align: center;
-    padding: 20px;
-    background-color: #1E2A47;
-    color: #fff;
-    margin-top: 40px;
 }
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #1E2A47;
+}
+
+/* Dark Mode Anpassungen */
+body.dark-mode h2 {
+    color: #f4a261;
+}
+
+p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ========== Buttons & Links ========== */
+a {
+    color: #3A5A98;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #1E2A47;
+}
+
+/* Dark Mode Link Farben */
+body.dark-mode a {
+    color: #f4a261;
+}
+
+body.dark-mode a:hover {
+    color: #ffcc80;
+}
+
+/* ========== Social Media Links ========== */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #3A5A98;
+    color: white;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+ul li a:hover {
+    background: #1E2A47;
+    transform: scale(1.05);
+}
+
+/* ========== News Sektion ========== */
+.news-item {
+    background: #e3e3e3;
+    padding: 20px;
+    margin: 15px auto;
+    border-radius: 8px;
+    max-width: 600px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.news-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Dark Mode Anpassung */
+body.dark-mode .news-item {
+    background: #2a2a2a;
+}
+
+/* ========== Kontakt
