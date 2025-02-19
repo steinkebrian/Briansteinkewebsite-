@@ -1,29 +1,30 @@
-// Scroll-Animation
-window.addEventListener('scroll', () => {
-    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
-        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
-            el.classList.add('fade-in');
+document.addEventListener("DOMContentLoaded", () => {
+    // Dark Mode Toggle
+    const themeToggle = document.getElementById("theme-toggle");
+    const body = document.body;
+
+    // Prüfen, ob Dark Mode schon aktiviert war
+    if (localStorage.getItem("dark-mode") === "enabled") {
+        body.classList.add("dark-mode");
+        themeToggle.textContent = "☀️";
+    }
+
+    themeToggle.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        if (body.classList.contains("dark-mode")) {
+            localStorage.setItem("dark-mode", "enabled");
+            themeToggle.textContent = "☀️";
+        } else {
+            localStorage.setItem("dark-mode", "disabled");
+            themeToggle.textContent = "🌙";
         }
     });
+
+    // Burger-Menü für Mobile Navigation
+    const burgerMenu = document.querySelector(".burger-menu");
+    const navLinks = document.querySelector(".nav-links");
+
+    burgerMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
 });
-
-// Dark Mode speichern
-const themeToggleButton = document.getElementById('theme-toggle');
-const currentTheme = localStorage.getItem('theme');
-
-if (currentTheme === 'dark') {
-    document.body.classList.add('dark-mode');
-    themeToggleButton.textContent = '🌞';
-}
-
-themeToggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    const theme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
-    localStorage.setItem('theme', theme);
-    themeToggleButton.textContent = theme === 'dark' ? '🌞' : '🌙';
-});
-
-// Hamburger-Menü
-function toggleMenu() {
-    document.querySelector('.nav-links').classList.toggle('active');
-}
